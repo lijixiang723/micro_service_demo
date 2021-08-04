@@ -9,7 +9,7 @@ node {
 
 	stage('构建镜像打包'){
 	    // 登录到阿里云镜像仓库
-	    sh "docker login -u ${username} -p ${password} ${aliyun_registry}"
+	    sh "docker login -u ${username} -p ${password} ${docker_registry}"
 	    // 打包镜像
 	    sh "docker build -t python-flask:latest ."
 	    // 打标签
