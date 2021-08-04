@@ -8,12 +8,10 @@ node {
 	}
 
 	stage('构建镜像打包'){
-	    // 登录到阿里云镜像仓库
-	    sh "docker login -u ${username} -p ${password} ${docker_registry}"
-	    // 打包镜像
-	    sh "docker build -t python-flask:latest ."
-	    // 打标签
-	    sh "docker tag python-flask:latest ${docker_registry}/li_jixiang/jixiang:python-flask"
-	    sh "docker push ${docker_registry}/li_jixiang/jixiang:python-flask"
+	    sshPublisher(publishers: [sshPublisherDesc(configName: 'aliyun-ssh', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''sh docker login -u "小马哥保佑不脱发" -p "1997723ljx"  registry.cn-hangzhou.aliyuncs.com
+sh docker build -t python3-flask .
+sh docker tag python-flask:latest ${docker_registry}/li_jixiang/jixiang:python-flask
+sh docker push ${docker_registry}/li_jixiang/jixiang:python-flask
+''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'micro_service_demo', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 	}
 }
