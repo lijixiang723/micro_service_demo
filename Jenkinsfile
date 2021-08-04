@@ -8,6 +8,6 @@ node {
 	}
 
 	stage('构建镜像打包'){
-	sshPublisher(publishers: [sshPublisherDesc(configName: 'aliyun-ssh', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sh /usr/sbin/start.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'micro_service_demo', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.py')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+	sshPublisher(publishers: [sshPublisherDesc(configName: '120.79.132.134-ssh', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sh /usr/sbin/start.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'micro_service_demo', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.py')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 	    }
 }
