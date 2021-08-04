@@ -1,4 +1,6 @@
 def docker_registry = 'registry.cn-hangzhou.aliyuncs.com'
+def username = '小马哥保佑不脱发'
+def password = '1997723ljx'
 
 node {
 	stage('拉取git仓库') {
@@ -9,10 +11,9 @@ node {
 	    // 登录到阿里云镜像仓库
 	    sh "docker login -u ${username} -p ${password} ${aliyun_registry}"
 	    // 打包镜像
-	    sh "docker build -t jenkins_micro_test:latest ."
+	    sh "docker build -t python-flask:latest ."
 	    // 打标签
-	    sh "docker tag jenkins_micro_test:latest ${docker_registry/li_jixiang/jixiang:jenkins_micro_test}"
-	    sh "docker push ${docker_registry/li_jixiang/jixiang:jenkins_micro_test}"
-
+	    sh "docker tag python-flask:latest ${docker_registry}/li_jixiang/jixiang:python-flask"
+	    sh "docker push ${docker_registry}/li_jixiang/jixiang:python-flask"
 	}
 }
