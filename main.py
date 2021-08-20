@@ -3,9 +3,9 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route("/task_01")
+@app.route("/demo_01")
 def task_01():
-    return "<h1>Task_01 and Jenkins Success!!! hello world 老爸平安无事 一定要平安回来</h1>"
+    return "<h1>CI/CD Demo</h1>"
 
 
 if __name__ == '__main__':
